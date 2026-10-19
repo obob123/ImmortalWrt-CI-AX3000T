@@ -36,16 +36,6 @@ if [ -d "$FEEDS_PATH/packages/net/tailscale" ]; then
 	fi
 fi
 
-#修改natmapt菜单位置
-if [ -d "$PACKAGE_PATH/luci-app-natmapt" ]; then
-	echo " "
-	if sed -i "s/network/services/g" \
-		"$PACKAGE_PATH/luci-app-natmapt/root/usr/share/luci/menu.d/luci-app-natmap.json"; then
-		echo "natmapt has been fixed!"
-	else
-		echo "natmapt fix failed; continuing!"
-	fi
-fi
 
 #修复Rust编译失败
 if [ -d "$FEEDS_PATH/packages/lang/rust" ]; then
